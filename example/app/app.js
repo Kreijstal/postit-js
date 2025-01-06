@@ -114,13 +114,13 @@ function openBoard(xml) {
   });
 }
 
-function saveSVG() {
+/*function saveSVG() {
   return modeler.saveSVG();
 }
 
 function saveBoard() {
   return modeler.saveXML({ format: true });
-}
+}*/
 
 // bootstrap board functions
 $(function() {
@@ -177,12 +177,12 @@ $(function() {
   });
 
 });
-
-// bootstrapping
-initSentry();
-initGA();
-
+console.log('henlo')
+console.log(newBoardXML)
 openBoard(newBoardXML);
+// bootstrapping
+
+
 
 
 // helpers //////////////////////
@@ -199,21 +199,5 @@ function debounce(fn, timeout) {
   };
 }
 
-function initSentry() {
-  if (process.env.SENTRY_DSN && process.env.SOURCE_VERSION && typeof Sentry !== 'undefined') {
-    Sentry.init({
-      dsn: process.env.SENTRY_DSN,
-      release: process.env.SOURCE_VERSION
-    });
 
-    // TEST
-    // Sentry.captureException(new Error('Something broke'));
-  }
-}
-
-function initGA() {
-  window.dataLayer = window.dataLayer || [];
-  function gtag() {dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'UA-72700874-2');
-}
+	
